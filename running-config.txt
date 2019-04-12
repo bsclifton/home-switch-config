@@ -1,0 +1,46 @@
+config-file-header
+switch0ec161
+v1.4.7.6 / R800_NIK_1_4_194_194
+CLI v1.0
+set system mode switch 
+
+file SSD indicator excluded
+@
+vlan database
+vlan 2 
+exit
+voice vlan oui-table add 0001e3 Siemens_AG_phone________
+voice vlan oui-table add 00036b Cisco_phone_____________
+voice vlan oui-table add 00096e Avaya___________________
+voice vlan oui-table add 000fe2 H3C_Aolynk______________
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone___________
+voice vlan oui-table add 00e075 Polycom/Veritel_phone___
+voice vlan oui-table add 00e0bb 3Com_phone______________
+hostname switch0ec161
+username 2Pjw2nT2DYD84Az3TRfJ password encrypted 167e84707420ea7b219d54f7afe39345ac00a42c privilege 15 
+ip ssh server
+no ip http server
+clock timezone AZ -7
+sntp broadcast client enable ipv4 
+clock source sntp
+sntp unicast client enable
+sntp unicast client poll
+sntp server time.nist.gov poll 
+!
+interface vlan 2
+ name Wireless 
+!
+interface gigabitethernet1
+ description "Apple TV (Living Room)"
+!
+interface gigabitethernet7
+ description "Brother MFC-L2740DW"
+!
+interface gigabitethernet8
+ description "Netgear WAC104"
+!
+interface gigabitethernet9
+ description "custom router"
+!
+exit
